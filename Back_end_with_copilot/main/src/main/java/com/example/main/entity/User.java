@@ -1,34 +1,31 @@
 package com.example.main.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-//define Contact class with id, name, email, phone, and address also define getters and setters parameterise constructor and toString method
+//define User entity class with id, name, email, password, and address also define getters and setters parameterise constructor and toString method
 @Entity
-public class Contact {
+
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     private String name;
     private String email;
-    private String phone;
+    private String password;
     private String address;
   
 
-    public Contact() {
+    public User() {
         super();
     }
 
-    public Contact(Long id, String name, String email, String phone, String address) {
+    public User(Long id, String name, String email, String password, String address) {
         super();
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phone = phone;
+        this.password = password;
         this.address = address;
     }
 
@@ -60,12 +57,12 @@ public class Contact {
     }
 
     //getters and setters methods
-    public String getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     //getters and setters methods
@@ -77,18 +74,11 @@ public class Contact {
         this.address = address;
     }
 
-    
-
-
     //toString method
     @Override
     public String toString() {
-        return "Contact [id=" + id + 
-                ", name=" + name + 
-                ", email=" + email + 
-                ", phone=" + phone + 
-                ", address=" + address + "]";
+        return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + password + ", address="
+                + address + "]";
     }
-
 
 }

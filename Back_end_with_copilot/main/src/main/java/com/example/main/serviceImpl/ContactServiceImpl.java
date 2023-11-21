@@ -29,12 +29,12 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact addContact(Contact contact) {
+    public Contact addContact(Contact contact) throws Exception {
         //check if contact already exists in database by id or email 
-        if (contactRepo.existsById(contact.getId()) || contactRepo.existsByEmail(contact.getEmail())) {
-              //if exists return null
-            return null;
-        }      
+        // if (contactRepo.existsById(contact.getId()) || contactRepo.existsByEmail(contact.getEmail())) {
+        //       //if exists return null
+        //      throw new Exception("Contact already exists");
+        // }      
         //else add contact to database and return contact
         return contactRepo.save(contact);
 
@@ -48,10 +48,10 @@ public class ContactServiceImpl implements ContactService {
         //check if contact present in database by id 
         //if not present update contact and return contact
         //else return null
-        if (contactRepo.existsById(contact.getId())) {
+        if (contactRepo.findById(contact.getId()) != null) {
             return contactRepo.save(contact);
         }
-        return null;
+        throw new RuntimeException("Contact not found");
 
     }
 

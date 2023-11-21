@@ -10,7 +10,7 @@ import com.example.main.entity.Contact;
 public interface ContactService {
     public List<Contact> getContacts();
     //define method to add contact in a list and return added contact 
-    public Contact addContact(Contact contact);
+    public Contact addContact(Contact contact) throws Exception;
     //define method to update contact in a list and return updated contact
     public Contact updateContact(Contact contact);
     //define method to delete contact in a list and return deleted contact

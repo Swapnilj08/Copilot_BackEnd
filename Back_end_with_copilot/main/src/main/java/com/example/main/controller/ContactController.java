@@ -27,7 +27,7 @@ public class ContactController {
 
     //define method to add contact in a list and return added contact
     @PostMapping("/add")
-    public Contact addContact(@RequestBody Contact contact) {
+    public Contact addContact(@RequestBody Contact contact) throws Exception {
         return contactService.addContact(contact);
     }
 
